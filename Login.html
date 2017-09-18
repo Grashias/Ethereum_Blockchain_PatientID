@@ -72,6 +72,7 @@
 	$(document).ready(function () {
 		$("#Hosp_patients").click(function() {
 		var hospname = $("#hosp_name").val();
+		var pass = $("#pass").val();
 		if((hospname != "") && (pass != "")){
 			window.location.href = "Hospitals.html?hospname=" + hospname;
 		}
