@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Forms</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-md-12">
+                    <!-- Nav tabs -->
+                    <div class="card">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="menu1">
+                                <form role="form">
+                                    <div class="row">
+                                        <div class="form-group col-lg-4" style="margin-left:33%;">
+                                            <label>Hospital Name</label>
+                                            <input class="form-control" id="hosp_name" type="text" placeholder="Hospital Name">
+                                        </div>
+                                        <div class="form-group col-lg-4" style="margin-left:33%; margin-bottom:10%;">
+                                            <label>Password</label>
+                                            <input class="form-control" id="pass" type="text" placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-2 col-sm-offset-5" >
+                                                    <input type="submit" class="form-control btn btn-primary" id="Hosp_patients" value="Log In">
+                                                </div>
+                                            </div>
+                                        </div>
+										<label class="names" id="names" style="margin-left: 40%;">Apollo,Malar,Metha,Best,Frontier</label>
+										<div class="lbl" id="lbl" style="text-align:center;">
+											<label class="lblvalid" id="lblvalid"></label>
+										</div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	
+	<script>
+	$(document).ready(function () {
+		$("#Hosp_patients").click(function() {
+		var hospname = $("#hosp_name").val();
+		if((hospname != "") && (pass != "")){
+			window.location.href = "Hospitals.html?hospname=" + hospname;
+		}
+		else{
+			$("#lblvalid").text("please enter Hospital name and password").css("color", "red");
+		}
+		return false;
+		});
+		
+	});
+	</script>
+</body>
+</html>

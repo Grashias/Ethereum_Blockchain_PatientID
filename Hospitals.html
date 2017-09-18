@@ -1,0 +1,496 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Hospital</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
+<style>
+		#tbltbody tr th {
+			font-weight:normal;
+		}
+		#tbltbody1 tr th {
+			font-weight:normal;
+		}
+		th {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-md-12">
+                    <!-- Nav tabs -->
+                    <div class="card">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="menu1" >
+                                <!--<form role="form">-->
+                                <div class="Check_Registration" id="Check_Registration" >
+                                    <div class="reg_buttons" id="reg_buttons">
+										<div class="col-md-4 col-lg-3" >
+                                            <div class="form-group">
+                                                <input type="submit" id="Hosp_hub" class="form-control btn btn-primary" value="Hospitals HUB">
+                                            </div>
+                                        </div>
+                                         <div class="col-md-4 col-lg-3" >
+                                            <div class="form-group">
+                                                <input type="submit" id="New_Patient" class="form-control btn btn-primary" value="New Patient">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-3" >
+                                            <div class="form-group">
+                                                <input type="submit" id="Existing_Patient" class="form-control btn btn-primary" value="Existing Patient">
+                                            </div>
+                                        </div>
+										<div class="col-md-4 col-lg-3" >
+                                            <div class="form-group">
+                                                <input type="submit" id="Hosp_patients" class="form-control btn btn-primary" value="All Patients">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--//</form>
+                                    <form role="form">-->
+                                    <div class="Registration" id="Registration" style="display:none;">
+                                        <div class="form-group col-lg-6">
+                                            <label>Patient ID</label>
+                                            <input class="form-control" id="pat_id" type="text" placeholder="Patient ID">
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Patient ref ID</label>
+                                            <input class="form-control" id="hosp_id" type="text" placeholder="Hospital ref ID">
+                                        </div>
+										<div class="form-group col-lg-6">
+                                            <label>Patient Address</label>
+                                            <input class="form-control" id="Patient_Address" type="text" placeholder="Patient Address">
+                                        </div>
+										<div class="form-group col-lg-6">
+                                            <label>Hospital Address</label>
+                                            <input class="form-control" id="Hospital_Address" type="text" placeholder="Hospital Address">
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Name</label>
+                                            <input class="form-control" id="name" type="text" placeholder="Name">
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>DOB</label>
+                                            <input class="form-control" id="dob" type="text" placeholder="DOB">
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Gender</label>
+                                            <input class="form-control" id="gender" type="text" placeholder="Gender">
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Aadhar No</label>
+                                            <input class="form-control" id="aadhar" type="text" placeholder="Aadhar No">
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Phone No</label>
+                                            <input class="form-control" id="phone" type="text" placeholder="Phone No">
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Address</label>
+                                            <input class="form-control" id="address" type="text" placeholder="Address">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-2" id="register" style="margin-left: 33%;">
+                                                    <input type="submit" class="form-control btn btn-primary" id="new_reg_btn" value="Register">
+                                                </div>
+												<div class="col-lg-2" id="new_exit_btn">
+													<input type="submit" id="exit" class="form-control btn btn-primary" value="Exit">
+												</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="existing_tab" id="existing_tab" style="display:none;">
+										<div class="form-group chkn_1 col-lg-12" id="chkn_1">
+											<div class="row form-group col-lg-6" id="ching">
+												<label>Patient ID</label>
+												<input class="form-control" id="hosp_id1" type="text" placeholder="Patient ID">
+											</div>
+											<div class="col-sm-2 " id="Validate1">
+												<input type="submit" id="check_id" style="margin-top: 15%; margin-left: 10%;" class="form-control btn btn-primary" value="Check ID">
+											</div>
+										</div>
+                                        
+                                        <div class=" form-group valid_tab" id="valid_tab" style="display:none;">
+                                            <div class="form-group col-lg-6">
+                                                <label>Name</label>
+                                                <input class="form-control" id="name1" type="text" placeholder="Name">
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <label>DOB</label>
+                                                <input class="form-control" id="dob1" type="text" placeholder="DOB">
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <label>Aadhar No</label>
+                                                <input class="form-control" id="aadhar1" type="text" placeholder="Aadhar No">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-lg-2 " style="margin-left: 42%;;" id="Validate2">
+                                                        <input type="submit" id="valid_det" class="form-control btn btn-primary" value="Validate">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+										
+										<div class=" form-group table-responsive striped panel-body" id="Existing_ID_det" style="display:none; width:100%;">
+                                            <table class="table" id="tblid">
+                                                <thead class="thead-inverse">
+                                                    <tr>
+                                                        <th>Patient ID</th>
+                                                        <th>Name</th>
+                                                        <th>DOB</th>
+                                                        <th>Aadhar no</th>
+                                                        <th>Gender</th>
+                                                        <th>Phone no</th>
+                                                        <th>Address</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tbltbody"></tbody>
+                                            </table>
+                                        </div>
+										<div class="row form-group col-lg-2" id="exit_btn" style="display:none;  margin-left: 42%;">
+                                            <input type="submit" id="exit" class="form-control btn btn-primary" value="Exit">
+                                        </div>
+                                    </div>
+									
+									<div class="own_patients" id="own_patients" style="display:none;">
+										<div class=" form-group table-responsive striped panel-body" id="Existing_ID_det" style="width:100%;">
+                                            <table class="table" id="tblid1">
+                                                <thead class="thead-inverse">
+                                                    <tr>
+                                                        <th>Patient ID</th>
+                                                        <th>Name</th>
+                                                        <th>DOB</th>
+                                                        <th>Aadhar no</th>
+                                                        <th>Gender</th>
+                                                        <th>Phone no</th>
+                                                        <th>Address</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tbltbody1"></tbody>
+                                            </table>
+                                        </div>
+									</div>
+                                    <!--</form>-->
+									<div class="lbl" id="lbl" style="text-align:center;">
+										<label class="lblvalid" id="lblvalid"></label>
+										<input type="hidden" id="hid_hosp" name="hospname" value="">
+									</div>
+									<div class="lbl" id="lbl" style="text-align:center;">
+										<label class="lblvalid" id="lblvalid"></label>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+		<script src="js/web3.js"></script>
+		<script src="js/accounts.js"></script>
+
+        <script>
+            $(document).ready(function () {
+			//web3.personal.newAccount('pass')
+			//web3.personal.unlockAccount("0xcf1994f2e7886ac6478ed68a4eca82dda35a33d2", "pass", 0)
+			
+		
+			//$ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}' http://127.0.0.1:8545
+			//{"method": "personal_unlockAccount", "params": [string, string, number]}
+			
+	
+			/*var data = {
+			"jsonrpc": "2.0",
+				"method": "personal_unlockAccount",
+				"params": [
+					"0xcf1994f2e7886ac6478ed68a4eca82dda35a33d2", "pass", 0
+					],
+				"id": 1
+				}
+	$.ajax({
+		type : "POST",
+		url : "http://hospocdzr.southindia.cloudapp.azure.com:8545",
+		dataType : "json",
+		contentType: "application/json; charset=utf-8",
+		data : JSON.stringify(data),
+				success : function(d) {
+					console.log(d);
+				},
+			error : function(error) {
+			console.log(error);
+		}
+	});*/
+			
+			
+			
+			$("#lblvalid").text("");
+			var queryString = new Array();
+			 if (queryString.length == 0) {
+                if (window.location.search.split('?').length > 1) {
+                    var params = window.location.search.split('?')[1].split('&');
+                    for (var i = 0; i < params.length; i++) {
+                        var key = params[i].split('=')[0];
+                        var value = decodeURIComponent(params[i].split('=')[1]);
+                        queryString[key] = value;
+						var hospname = queryString[key];
+						$("#hid_hosp").val(hospname);
+                    }
+                }
+            }
+			
+			
+			var hospital_name = $("#hid_hosp").val();
+			var acc;
+			if(hospital_name = "Apollo") {
+				acc = web3.eth.accounts[1];
+			}
+			else if(hospital_name = "Malar") {
+				acc = web3.eth.accounts[2];
+			}
+			else if(hospital_name = "Metha") {
+				acc = web3.eth.accounts[3];
+			}
+			else if(hospital_name = "Best") {
+				acc = web3.eth.accounts[4];
+			}
+			else if(hospital_name = "Frontier") {
+				acc = web3.eth.accounts[5];
+			}
+			
+			$("#Hosp_hub").click(function() {
+				window.location.href = 'hosp_hub.html';
+				return false;
+			});
+			
+			$("#New_Patient").click(function() {
+			
+				var data = {
+				"jsonrpc": "2.0",
+				"method": "personal_newAccount",
+				"params": [
+					"pass"
+					],
+				"id": 1
+				}
+				$.ajax({
+					type : "POST",
+					url : "http://etherunvw.southindia.cloudapp.azure.com:8545",
+					dataType : "json",
+					contentType: "application/json; charset=utf-8",
+					data : JSON.stringify(data),
+					success : function(d) {
+						console.log(d);
+						patient_addr = d.result;
+						saved(patient_addr);
+					},
+					error : function(error) {
+						console.log(error);
+					}
+			    });
+				
+				
+				/*web3.personal.newAccount('pass', function(err, res){
+				if (err)
+					throw err;
+
+				console.log(res);
+				patient_addr = res;
+				});*/
+				//var patient_addr = web3.eth.accounts[res];
+			});
+			
+			function saved(patient_addr){
+				$("#lblvalid").text("");
+				web3.eth.defaultAccount = acc;
+				$("#reg_buttons").hide();
+				$("#Registration").show();
+				
+				var random_no = Math.floor(100000 + Math.random() * 900000);
+				//var patients_count = contract.getPatientsCount();
+				//var pat_count = parseInt(patients_count) + 1;
+				//var patient_addr;
+				var hosp_addr = acc;
+				
+				$("#Hospital_Address").val(hosp_addr);
+				$("#hosp_id").val(patient_addr);
+				$("#pat_id").val("PATIENT-" + random_no);
+				$("#Patient_Address").val(patient_addr);
+			}
+			
+			$("#new_exit_btn").click(function() {
+				$("#lblvalid").text("");
+				location.reload();
+			});
+			
+			$("#Existing_Patient").click(function() {
+				$("#lblvalid").text("");
+				$("#reg_buttons").hide();
+				$("#existing_tab").show();
+				$("#exit_btn").show();
+			});
+			
+			$("#new_reg_btn").click(function() {
+				$("#lblvalid").text("");
+				var patient_ID = $("#pat_id").val();
+				var Patient_ID_ref = $("#hosp_id").val();
+				var name = $("#name").val();
+				var dob = $("#dob").val();
+				var gender = $("#gender").val();
+				var aadhar = $("#aadhar").val();
+				var phone = $("#phone").val();
+				var address = $("#address").val();
+				var patient_addr = $("#Patient_Address").val();
+				var hosp_addr = $("#Hospital_Address").val();
+				web3.eth.defaultAccount = acc;
+				var secret = name + dob + aadhar;
+				var secretHash = web3.sha3(secret);
+				var signed = web3.eth.sign(patient_addr, secretHash);
+				
+				var Patient_ref = contract.newPatientDetails.call(patient_ID,signed,patient_addr,hosp_addr,name + " || " + dob + " || " + gender + " || " + aadhar + " || " + phone + " || " + address ,{gas:4500000});
+				if(Patient_ref == 5){
+					$("#lblvalid").text("Unable to submit Patient Details").css("color", "red");
+				}
+				else{
+					contract.newPatientDetails(patient_ID,signed,patient_addr,hosp_addr,name + " || " + dob + " || " + gender + " || " + aadhar + " || " + phone + " || " + address ,{gas:4500000});
+					$("#lblvalid").text("Patient Details Registered").css("color", "green");
+				}
+			});
+			
+			$("#check_id").click(function() {
+				$("#lblvalid").text("");
+				var HospitalID_val = $("#hosp_id1").val();
+				var PatientDetails = contract.getHospDetails.call(HospitalID);
+				var Hospital_ID = PatientDetails[0];
+				if(Hospital_ID == HospitalID_val) {
+					$("#valid_tab").show();
+				}
+				else{
+					$("#lblvalid").text("ID not valid");
+				}
+			});
+			
+			$("#valid_det").click(function() {
+				$("#lblvalid").text("");
+				var name_val = $("#name1").val();
+				var dob_val = $("#dob1").val();
+				var aadhar_val = $("#aadhar1").val();
+				if((name_val != "") && (dob_val != "") && (aadhar_val != "")){
+					web3.eth.defaultAccount = acc;
+					var name1 = $("#name1").val();
+					var dob1 = $("#dob1").val();
+					var aadhar1 = $("#aadhar1").val();
+				    var secret = name1 + dob1 + aadhar1;
+					var HospitalID1 = $("#hosp_id1").val();
+					var PatientDetails1 = contract.getHospDetails.call(HospitalID1);
+					var Hosp_id_ref1 = PatientDetails1[1];
+                    
+					var signature = PatientDetails1[2];
+                    var r = signature.slice(0, 66);
+                    var s = '0x' + signature.slice(66, 130);
+                    var v = '0x' + signature.slice(130, 132);
+                    v = web3.toDecimal(v);
+					var sign = contract.verify(web3.sha3(secret),v,r,s,Hosp_id_ref1);
+                    
+					if (sign == true) {
+                        $("#Existing_ID_det").show();
+						var html = "";
+						$("#tbltbody").empty();
+						var HospitalID = $("#hosp_id1").val();
+						var PatientDetails = contract.getHospDetails.call(HospitalID);
+								
+						var Hosp_id_ref = PatientDetails[1];
+						var Hospital_ID = PatientDetails[0];
+						var PatientDetailsArray = PatientDetails[5].split('||');
+						var Name = PatientDetailsArray[0];
+						var DOB = PatientDetailsArray[1];
+						var Aadhar_no = PatientDetailsArray[2];
+						var Gender = PatientDetailsArray[3];
+						var Phone_no = PatientDetailsArray[4];
+						var Address = PatientDetailsArray[5];
+						
+						html = "<tr><th>" + Hospital_ID + "</th><th>" + Name + "</th><th>" + DOB + "</th><th>" + Aadhar_no + " </th><th>" + Gender + "</th><th>" + Phone_no + "</th><th>" + Address + "</th></tr>";
+						$("#tbltbody").html(html);
+                    } else {
+                        $("#lblvalid").text("Details not valid");
+                    }
+				}
+				else{
+					$("#lblvalid").text("Please enter name, dob and aadhar no.");
+				}
+			});
+			
+			$("#Hosp_patients").click(function() {				
+				web3.eth.defaultAccount = acc; // Hosp_Hub Account
+                var count = contract.getHospCount.call();
+                if (count.length == 0) {
+                    $("#lblvalid").text("No Patient Registered").css("color", "red");
+                }
+                else {
+					$("#reg_buttons").hide();
+					$("#own_patients").show();
+                    $("#lblvalid").text("");
+                    var html = "";
+					$("#tbltbody").empty();
+                    for (var i = 0; i < count.length; i++) {
+                        var count1 = count[i].c[0];
+                        var PatientDetails = contract.getownpatientsDetails.call(count1);
+                        
+                        var Hosp_id_ref = PatientDetails[1];
+                        var Hospital_ID = PatientDetails[0];
+						var PatientDetailsArray = PatientDetails[5].split('||');
+                        var Name = PatientDetailsArray[0];
+						var DOB = PatientDetailsArray[1];
+                        var Aadhar_no = PatientDetailsArray[3];
+                        var Gender = PatientDetailsArray[2];
+						var Phone_no = PatientDetailsArray[4];
+                        var Address = PatientDetailsArray[5];
+
+						if(html == ""){
+							html = "<tr><th>" + Hospital_ID + "</th><th>" + Name + "</th><th>" + DOB + "</th><th>" + Aadhar_no + " </th><th>" + Gender + "</th><th>" + Phone_no + "</th><th>" + Address + "</th></tr>";
+						}
+						else{
+							html = html + "<tr><th>" + Hospital_ID + "</th><th>" + Name + "</th><th>" + DOB + "</th><th>" + Aadhar_no + " </th><th>" + Gender + "</th><th>" + Phone_no + "</th><th>" + Address + "</th></tr>";
+						}
+                    }
+                    $("#tbltbody1").html(html);
+                }
+
+            });
+			
+			$("#exit_btn").click(function() {
+				location.reload();
+			});
+			
+			
+			
+            });
+        </script>
+</body>
+</html>

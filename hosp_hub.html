@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Hospital_HUB</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
+	<style>
+		#tbltbody tr th {
+			font-weight:normal;
+		}
+		th {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-md-12">
+                    <!-- Nav tabs -->
+                    <div class="card">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="menu1">
+                                <form role="form">
+                                    <div class="table-responsive striped panel-body">
+                                        <table class="table" id="tblid">
+                                            <thead class="thead-inverse">
+                                                <tr>
+                                                    <th>Patient ID</th>
+                                                    <th>Name</th>
+                                                    <th>DOB</th>
+                                                    <th>Aadhar no</th>
+                                                    <th>Gender</th>
+                                                    <th>Phone no</th>
+                                                    <th>Address</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbltbody"></tbody>
+                                        </table>
+                                    </div>
+									<div class="lbl" id="lbl" style="text-align:center;">
+										<label class="lblvalid" id="lblvalid"></label>
+									</div>
+									<div class="row form-group col-lg-2" id="exit_btn" style=" margin-left: 42%;">
+                                         <input type="submit" id="exit" class="form-control btn btn-primary" value="Exit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/web3.min.js"></script>
+	<script src="js/accounts.js"></script>
+	
+	<script>
+	$(document).ready(function () {
+				$("#lblvalid").text("");
+                web3.eth.defaultAccount = web3.eth.accounts[0]; // Hosp_Hub Account
+                var count = contract.gethosphubcount.call();
+                if (count.length == 0) {
+                    $("#lblvalid").text("No Patient Registered").css("color", "red");
+                }
+
+                else {
+                    $("#lblvalid").text("");
+                    var html = "";
+					$("#tbltbody").empty();
+                    for (var i = 0; i < count.length; i++) {
+                        var count1 = count[i].c[0];
+                        var PatientDetails = contract.getHosp_Hub_Details.call(count1);
+                        
+                        var Hosp_id_ref = PatientDetails[1];
+                        var Hospital_ID = PatientDetails[0];
+						var PatientDetailsArray = PatientDetails[5].split('||');
+                        var Name = PatientDetailsArray[0];
+						var DOB = PatientDetailsArray[1];
+                        var Aadhar_no = PatientDetailsArray[3];
+                        var Gender = PatientDetailsArray[2];
+						var Phone_no = PatientDetailsArray[4];
+                        var Address = PatientDetailsArray[5];
+
+						if(html == ""){
+							html = "<tr><th>" + Hospital_ID + "</th><th>" + Name + "</th><th>" + DOB + "</th><th>" + Aadhar_no + " </th><th>" + Gender + "</th><th>" + Phone_no + "</th><th>" + Address + "</th></tr>";
+						}
+						else{
+							html = html + "<tr><th>" + Hospital_ID + "</th><th>" + Name + "</th><th>" + DOB + "</th><th>" + Aadhar_no + " </th><th>" + Gender + "</th><th>" + Phone_no + "</th><th>" + Address + "</th></tr>";
+						}
+                            
+                        //}
+                        //}
+                    }
+                    $("#tbltbody").html(html);
+                }
+				$("#exit").click(function() {
+					window.location.href = 'Hospitals.html';
+					return false;
+				});
+			
+				/*$.get('http://10.0.0.4:4336/listpatients', function(d) {
+				if (d.length == 0) {
+                    $("#lblvalid").text("No Patient Registered").css("color", "red");
+                }
+
+                else {
+					web3.eth.defaultAccount = web3.eth.accounts[0];;
+					$("#lblvalid").text("");
+                    var html = "";
+					$("#tbltbody").empty();
+                    for (var i = 0; i < d.length; i++) {
+                        var count1 = d[i];
+                        var PatientDetails = contract.getHosp_Hub_Details.call(count1);
+                        
+                        var Hosp_id_ref = PatientDetails[1];
+                        var Hospital_ID = PatientDetails[0];
+						var PatientDetailsArray = PatientDetails[5].split('||');
+                        var Name = PatientDetailsArray[0];
+						var DOB = PatientDetailsArray[1];
+                        var Aadhar_no = PatientDetailsArray[3];
+                        var Gender = PatientDetailsArray[2];
+						var Phone_no = PatientDetailsArray[4];
+                        var Address = PatientDetailsArray[5];
+
+						if(html == ""){
+							html = "<tr><th>" + Hosp_id_ref + "</th><th>" + Hospital_ID + "</th><th>" + Name + "</th><th>" + DOB + "</th><th>" + Aadhar_no + " </th><th>" + Gender + "</th><th>" + Phone_no + "</th><th>" + Address + "</th></tr>";
+						}
+						else{
+							html = html + "<tr><th>" + Hosp_id_ref + "</th><th>" + Hospital_ID + "</th><th>" + Name + "</th><th>" + DOB + "</th><th>" + Aadhar_no + " </th><th>" + Gender + "</th><th>" + Phone_no + "</th><th>" + Address + "</th></tr>";
+						}
+					}
+					$("#tbltbody").html(html);
+					}
+				});*/
+				
+            });
+        </script>
+	
+</body>
+</html>
+                                                                      
