@@ -11,7 +11,7 @@ Username: Apollo,Malar,Metha,Best,Frontier
 Password: password
 ********************
 
-For creating using Azure steps given below..
+For creating using Azure, steps are given below..
 ************
 
 Azure setup:
