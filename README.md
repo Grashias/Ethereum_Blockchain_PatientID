@@ -8,6 +8,8 @@ Login
 
 Username: Apollo,Malar,Metha,Best,Frontier
 
+Note: Kindly change in the account js file with your hosted azure http provider.
+
 Password: password
 ********************
 
