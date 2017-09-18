@@ -27,12 +27,15 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
+        <div class="container" id="top_head" style="text-align:center; font-weight:bold; font-size:2em;">
             <!-- Brand and toggle get grouped for better mobile display -->
             <!-- /.navbar-collapse -->
+			<span class="hdname" id="hdname"></span><h> Hospital</h>
+			<img id="logout" src="img/logout.jpg" alt="Smiley face" height="35" width="35" style="float: right;">
         </div>
         <!-- /.container -->
     </nav>
+	
     <div class="container">
         <div class="row">
             <div class="box">
@@ -235,6 +238,7 @@
 			
 			
 			var hospital_name = $("#hid_hosp").val();
+		    	$(".hdname").text(hospital_name);
 			var acc;
 			if(hospital_name = "Apollo") {
 				acc = web3.eth.accounts[1];
