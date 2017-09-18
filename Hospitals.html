@@ -218,41 +218,9 @@
 
         <script>
             $(document).ready(function () {
-			//web3.personal.newAccount('pass')
-			//web3.personal.unlockAccount("0xcf1994f2e7886ac6478ed68a4eca82dda35a33d2", "pass", 0)
-			
-		
-			//$ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}' http://127.0.0.1:8545
-			//{"method": "personal_unlockAccount", "params": [string, string, number]}
-			
-	
-			/*var data = {
-			"jsonrpc": "2.0",
-				"method": "personal_unlockAccount",
-				"params": [
-					"0xcf1994f2e7886ac6478ed68a4eca82dda35a33d2", "pass", 0
-					],
-				"id": 1
-				}
-	$.ajax({
-		type : "POST",
-		url : "http://hospocdzr.southindia.cloudapp.azure.com:8545",
-		dataType : "json",
-		contentType: "application/json; charset=utf-8",
-		data : JSON.stringify(data),
-				success : function(d) {
-					console.log(d);
-				},
-			error : function(error) {
-			console.log(error);
-		}
-	});*/
-			
-			
-			
-			$("#lblvalid").text("");
-			var queryString = new Array();
-			 if (queryString.length == 0) {
+	    	$("#lblvalid").text("");
+		var queryString = new Array();
+		if (queryString.length == 0) {
                 if (window.location.search.split('?').length > 1) {
                     var params = window.location.search.split('?')[1].split('&');
                     for (var i = 0; i < params.length; i++) {
